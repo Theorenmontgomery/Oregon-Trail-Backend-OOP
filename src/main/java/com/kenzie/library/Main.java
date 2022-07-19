@@ -6,7 +6,23 @@ import java.util.NoSuchElementException;
 
 public class Main {
     /*** Declare Statics and Constants Here ***/
-    
+    public static int daysTravelled;
+//
+    public static int milesTravelled;
+    //
+    static final int TOTAL_MILES = 1600;
+    static final int MILES_PER_DAY = 20;
+    static final int FOOD_EXCHANGE = 2;
+    static final int MAX_DAYS = 100;
+    static final int WAGON_SIZE = 4;
+    static final int HUNT_DAYS = 4;
+    static final int NUM_TRAVELERS = 4;
+    static final int NUM_HUNTERS = 2;
+    static final int NUM_DOCTORS = 1;
+    //disaster enum
+    public static Disaster disaster = Disaster.TORNADO;
+
+
 
     /*** DO NOT CHANGE THE CODE BELOW THIS LINE ***/
     public static void main (String[] args) {
@@ -183,6 +199,21 @@ public class Main {
 
             for (int i = 0; i < max_days; i++) {
                   OregonTrail.feedWagon(passengerArray);
+
+                System.out.println("A day has happened: ");
+                  Math.random();
+                  if(Math.random()>0.9){
+                    if (disaster == Disaster.TORNADO){
+                        for (int j = 0; j < wagon.getPassengers().length ; j++) {
+                            if (wagon.getPassengers()[j] != null) {
+                                wagon.getPassengers()[j].setFood(0);
+                            }
+                        }
+                        System.out.println("A natural disaster hits: " + disaster +" ,lose all your food.");
+
+                    }
+                  }
+                System.out.println("Your food supply: " + wagon.totalFood());
 
                 //HUNTING ROUTINE
                 // Check if hunting day - use modulo math to see if HUNT_DAYS divides evenly into totalDays
