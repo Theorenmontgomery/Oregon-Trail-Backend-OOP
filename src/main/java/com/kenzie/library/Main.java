@@ -200,19 +200,40 @@ public class Main {
             for (int i = 0; i < max_days; i++) {
                   OregonTrail.feedWagon(passengerArray);
 
+
+
                 System.out.println("A day has happened: ");
                   Math.random();
-                  if(Math.random()>0.9){
-                    if (disaster == Disaster.TORNADO){
-                        for (int j = 0; j < wagon.getPassengers().length ; j++) {
+
+                  if(Math.random()>.9){
+
+                    if (disaster == Disaster.getRandomDisaster()) {
+                        for (int j = 0; j < wagon.getPassengers().length; j++) {
                             if (wagon.getPassengers()[j] != null) {
                                 wagon.getPassengers()[j].setFood(0);
                             }
                         }
+                    }
                         System.out.println("A natural disaster hits: " + disaster +" ,lose all your food.");
 
+                    } else if (disaster == Disaster.EARTHQUAKE) {
+                        for (int j = 0; j < wagon.getPassengers().length ; j++) {
+                            if (wagon.getPassengers()[j] != null) {
+                                wagon.getPassengers()[j].setFood(2);
+                            }
+                        }
+                        Math.random();
+                        if(Math.random() > .9){
+                      } else if( disaster == Disaster.HURRICANE) {
+                            for (int j = 0; j < wagon.getPassengers().length; j++) {
+                                if (wagon.getPassengers()[j] != null) {
+                                    wagon.getPassengers()[j].setFood(1);
+                                }
+                            }
+                            System.out.println("A natural disaster hits: " + disaster + " ,lose all your food.");
+                        }
                     }
-                  }
+
                 System.out.println("Your food supply: " + wagon.totalFood());
 
                 //HUNTING ROUTINE
